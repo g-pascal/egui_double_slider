@@ -137,11 +137,13 @@ impl<'a, T: Numeric> DoubleSlider<'a, T> {
     /// Default is false.
     #[inline]
     pub fn logarithmic(mut self, logarithmic: bool) -> Self {
-        let range_f64 = self.range_f64();
-        assert!(
-            *range_f64.start() > 0.0 && range_f64.end().is_finite(),
-            "Logarithmic scale can only be used with finite, strictly positive values"
-        );
+        if logarithmic {
+            let range_f64 = self.range_f64();
+            assert!(
+                *range_f64.start() > 0.0 && range_f64.end().is_finite(),
+                "Logarithmic scale can only be used with finite, strictly positive values"
+            );
+        }
         self.logarithmic = logarithmic;
         self
     }

@@ -8,6 +8,10 @@ All notable changes to the `egui double slider` crate will be documented in this
 
 * ...
 
+### Fixed:
+
+* Remove the "range is positive/finite" assertion when calling `.logarithmic(false)`
+
 # 0.7.0 - 24.3.2025
 
 ### Added:
